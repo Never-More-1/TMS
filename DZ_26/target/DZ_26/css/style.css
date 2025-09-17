@@ -1,0 +1,24 @@
+body {
+    background-color: black;
+    font-size: xxx-large;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.firstBracket {
+
+    horiz-align: right;
+    color: gold;
+}
+
+.text {
+    horiz-align: left;
+    color: white;
+}
+
+.secondBracket{
+    color: gold;
+    background-color: black;
+}
