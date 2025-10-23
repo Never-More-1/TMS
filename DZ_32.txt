@@ -1,0 +1,35 @@
+1.Получить список всех сотрудников из 50го отдела (department_id) с
+зарплатой(salary), большей 4000:
+	SELECT * FROM employees
+	WHERE department_id = 50 AND salary > 4000
+2. Получить список всех сотрудников у которых последняя буква в имени равна 'a':
+	SELECT * FR0M employees
+	WHERE lastname LIKE '%a'
+3. Получить список всех сотрудников из 50го и из 80го отдела (department_id) у
+которых есть бонус (значение в колонке commission_pct не пустое).
+	SELECT * FROM employees 
+	WHERE (department_id = 50 AND department_id = 80) AND commission_pct is not NULL;
+4. Получить список всех сотрудников у которых зарплата находится в промежутке
+от 8000 до 9000 (включительно):
+	SELECT * FROM employees 
+	WHERE salary BETWEEN 8000 AND 9000
+5. Получить список всех сотрудников заменив в значении PHONE_NUMBER все '.'
+на '-':
+	SELECT * FROM employees 
+	REPLACE(phone_number, '.', '-')
+6. Сколько сотрудников которые работают в одном и том же отделе и получают
+одинаковую зарплату?
+	SELECT COUNT(*) AS same_salary_and_department
+	FROM employees as employee
+	WHERE EXISTS (
+  	SELECT 1
+  	FROM employees as x
+  	WHERE x.department_id = employee.department_id
+    	AND x.salary = employee.salary
+    	AND x.employee_id != employee.employee_id
+	);
+7. Получить список сотрудников с самым длинным именем:
+	SELECT * FROM employees
+	WHERE LENGTH(first_name) = (
+  	SELECT MAX(LENGTH(first_name)) FROM employees
+);
