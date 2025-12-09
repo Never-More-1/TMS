@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+All users:
+<div th:switch="${role.name()}">
+    <div th:case="USER">This is USER role</div>
+    <div th:case="ADMIN">This is ADMIN role</div>
+    <div th:case="MODERATOR">This is MODERATOR role</div>
+    <div th:case="*">This is not USER, ADMIN, MODERATOR!</div>
+</div>
+<div th:if="${flag}">
+    Message if TRUE
+</div>
+<div th:unless="${flag}">
+    Message if TRUE
+</div>
+
+<h1 th:text="${helloKey}">Это видно не будет!</h1>
+<h1 th:inline="text">Меня зовут [[${name}]]</h1>
+<ul th:each="u:${usersKey}">
+    <li th:inlinet="text">ID: [[${u.id}]]</li>
+    <li th:inlinet="text">Name: [[${u.name}]]</li>
+    <li th:inlinet="text">Age: [[${u.age}]]</li>
+    <li th:inlinet="text">Created: [[${u.created}]]</li>
+    <li th:inlinet="text">Updated: [[${u.updated}]]</li>
+    <h1 th:inline="text">---------------------------</h1>
+</ul>
+</body>
+</html>
