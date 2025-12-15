@@ -1,0 +1,7 @@
+package springApp.model;
+
+public enum Role {
+    ADMIN, USER, MODERATOR, UNDEFINED;
+
+
+}
